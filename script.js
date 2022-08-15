@@ -96,7 +96,7 @@ function whatsapp(botao){
         - Prato: ${comida}
         - Bebida: ${bebida}
         - Sobremesa: ${sobremesa}
-        Total: ${(valor_comida + valor_bebida + valor_sobremesa).toFixed(2)}`)
+        Total: R$ ${(valor_comida + valor_bebida + valor_sobremesa).toFixed(2)}`)
         
         const a = botao.parentNode
         a.setAttribute('href', `https://wa.me/5521988417007?text=${mensagem}`)
