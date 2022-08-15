@@ -30,7 +30,7 @@ function selectOptionSobremesa(option){
     valor_sobremesa = option.childNodes[7].innerHTML
     valor_sobremesa = valor_sobremesa.split(' ')[1]
     valor_sobremesa = parseFloat(valor_sobremesa.replace(',', '.'))
-    console.log(valor_sobremesa)
+
     verificaBotao();
 }
 
@@ -54,7 +54,6 @@ function selectOptionComida(option){
     valor_comida = option.childNodes[7].innerHTML
     valor_comida = valor_comida.split(' ')[1]
     valor_comida = parseFloat(valor_comida.replace(',', '.'))
-    console.log(valor_comida);
 
     verificaBotao();
 }
@@ -78,7 +77,6 @@ function selectOptionBebida(option){
     valor_bebida = option.childNodes[7].innerHTML
     valor_bebida = valor_bebida.split(' ')[1]
     valor_bebida = parseFloat(valor_bebida.replace(',', '.'))
-    console.log(valor_bebida);
 
     verificaBotao();
 }
@@ -92,12 +90,15 @@ function verificaBotao(){
     }
 }
 
-function whatsapp(){
+function whatsapp(botao){
     if (opcaoSobremesa && opcaoComida && opcaoBebida){
-        encodeURIComponent(`https://wa.me/5521988417007?text=Olá, gostaria de fazer o pedido:
+       let mensagem =  encodeURIComponent(`Olá, gostaria de fazer o pedido:
         - Prato: ${comida}
         - Bebida: ${bebida}
         - Sobremesa: ${sobremesa}
-        Total: ${valor_comida + valor_bebida + valor_sobremesa}`)
+        Total: ${(valor_comida + valor_bebida + valor_sobremesa).toFixed(2)}`)
+        
+        const a = botao.parentNode
+        a.setAttribute('href', `https://wa.me/5521988417007?text=${mensagem}`)
     }
 }
